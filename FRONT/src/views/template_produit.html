@@ -8,18 +8,20 @@
     <title>Orinoco site de vente en ligne</title>
     <link rel="stylesheet" href="tailwind.css">
     <script src="https://kit.fontawesome.com/3821baace1.js" crossorigin="anonymous"></script>
-
+    <!-- <link rel="stylesheet" href="../../dist/tailwind.css"> -->
 
 </head>
 
 <body>
-    <nav class="flex justify-between text-6xl mt-8">
-        <div class="logo flex ml-8">
-            <div id="companylogo" class="cartlogo"><i class="fas fa-shopping-cart iconegradient"></i></div>
-            <div class="logoname font-extrabold ml-8"><span class="logofont">Orinoco</span></div>
-        </div>
+    <nav class="flex justify-between text-6xl mt-8 py-8 bg-yellow-100">
+        <a href="./index.html">
+            <div class="logo flex ml-8">
+                <div id="companylogo" class="cartlogo"><i class="fas fa-shopping-cart iconegradient"></i></div>
+                <div class="logoname font-extrabold ml-8"><span class="logofont">Orinoco</span></div>
+            </div>
+        </a>
         <div class="cart_icon mr-8">
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="panier.html" rel="noopener noreferrer">
                 <div class="relative"><i class="fas fa-shopping-cart"></i>
                     <p
                         class="w-10 h-10 bg-red-100 absolute bottom-0 left-2/3 text-center text-2xl font-extrabold rounded-full">
@@ -29,9 +31,9 @@
         </div>
     </nav>
     <h1 class="text-6xl text-center">Site de vente en ligne</h1>
-    <main class="">
+    <main class="" id="detailsproduit">
 
-        <div class="productcard">
+        <!-- <div class="productcard">
             <div class="flex "><img src="../img/teddy_1.jpg" alt="Photo d'un ours" class="w-2/5">
             <div class=" flex items-center justify text-6xl m-auto" ><h2 class="product--title items-center">
                 Article 1
@@ -42,6 +44,7 @@
                 voluptas rem culpa repudiandae tenetur distinctio corporis inventore atque exercitationem hic laboriosam
                 dignissimos itaque libero autem asperiores!
             </p>
+            <p>AU prix de ****</p>
             <form action="post" class="flex justify-between mx-8 my-8">
                 <div><input type="radio" name="color" id="blue">
                     <label for="blue"> blue</label>
@@ -53,10 +56,9 @@
                     <label for="yellow"> yellow</label>
                 </div>
                 <input type="text" name="qty" id="qty" placeholder="ENtrer la qté">
-                <input type="submit" value="Ajouter au panier">
-
-            </form>
-        </div>
+                </form>
+                <button>Ajouter au panier</button>
+        </div> -->
 
     </main>
 
