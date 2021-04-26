@@ -3,4 +3,8 @@ FRONT/dist/*
 BACK/node_modules/*
 BACK/package-lock.json
 *.docx
+<<<<<<< Updated upstream
 *.pdf
+=======
+BACK/package-lock.json
+>>>>>>> Stashed changes
