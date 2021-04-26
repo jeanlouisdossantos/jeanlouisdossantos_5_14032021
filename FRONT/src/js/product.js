@@ -6,6 +6,10 @@ import { storage } from "./storage.js";
 const id = new URL(document.location).searchParams.get("id");
 document.addEventListener("load",updateCounter())
 
+/***
+ * fonction qui affiche le details d'un produit sur la page
+ * @params obj qui represente un produit
+ */
 const createDetailedProductCard = function (obj) {
   let detailsproduit = document.getElementById("detailsproduit");
   const card = `
@@ -51,12 +55,17 @@ const createDetailedProductCard = function (obj) {
   })
   
 }
-
+/**
+ * fonction errorMessage qui affiche un message a l'utilisateur si 
+ * @returns un element du dom
+ */
 const errorMessage = function () {
   const  detailsProduit = document.getElementById("detailsproduit");
   const card = `
       <div class="productcard">
-      MESSAGE D'ERREUR reviens en arrier
+      MESSAGE D'ERREUR
+      <a href="./index.html" class="text-red-400">Retour à la page d'accueil</a>
+
       </div>
 `;
 

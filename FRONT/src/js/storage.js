@@ -1,7 +1,5 @@
 // gestion du local storage
-//  @return(Array)
 
-import { updateCounter } from "./utils"
 // création de la classe storage qui gere les differente fonction du panier
 class Storage {
   

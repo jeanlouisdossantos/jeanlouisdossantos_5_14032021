@@ -6,7 +6,7 @@ import { updateCounter } from "./utils";
 document.addEventListener("load", updateCounter());
 
 /** fonction create row  */
-const createrow = function (obj) {
+const createRow = function (obj) {
   let row = `
             <tr>
                 <td class="p-4">${obj.name}</td>
@@ -56,7 +56,7 @@ const createBasket = function (array) {
             <th class="p-4">Enlever du panier?</th>
         </tr>
         
-        ${basket.map((obj) => createrow(obj)).join("")}
+        ${basket.map((obj) => createRow(obj)).join("")}
             <tr class="hidden" id="totalline">
                 <td class="p-4"></td>
                 <td class="p-4"></td>
@@ -131,7 +131,6 @@ const isFormValid = function (formdata) {
 
   return !res.includes(false)
 };
-
 /** fonction submit boutton
  * gere les evenement pour l'envoi de la commande vers le serveur
  */
@@ -147,7 +146,7 @@ const submitButton = function () {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(getorderbodyrequest()),
+      body: JSON.stringify(getOrderBodyRequest()),
     };
 
     const url = `${backendurl}order`;
@@ -156,7 +155,7 @@ const submitButton = function () {
       fetch(url, requesttosend)
       .then((res) => {
         if (res.ok) {
-          res.json().then((json) => createorderconfirmation(json));
+          res.json().then((json) => createOrderConfirmation(json));
         } else {
           let main = document.querySelector("body > main");
           main.innerHTML = `
@@ -189,7 +188,7 @@ const submitButton = function () {
 /** creation du body de la request post a envoyer au server
  * @returns object
  */
-const getorderbodyrequest = () => {
+const getOrderBodyRequest = () => {
   let body = {};
   body.contact = {};
   body.contact.firstName = document.getElementById("firstname").value;
@@ -204,7 +203,7 @@ const getorderbodyrequest = () => {
  * Fonction qui affiche la confirmation de la commande
  * @param {*} obj objet qui contient la confirmation de la ommande renvoyé par le serveur
  */
-const createorderconfirmation = (obj) => {
+const createOrderConfirmation = (obj) => {
   let main = document.querySelector("body > main");
   let basket = storage.getallitems();
   main.innerHTML = `

@@ -1,7 +1,10 @@
 import {storage} from './storage'
 
-// FOnction pour afficher le prix en €
-
+/**
+ * 
+ * @param {*} price un nombre 
+ * @returns 
+ */
 export const convertToCurrency = (price) =>
   Intl.NumberFormat("fr-FR", {
     style: "currency",

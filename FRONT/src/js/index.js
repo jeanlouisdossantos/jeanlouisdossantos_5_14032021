@@ -8,7 +8,12 @@ import {storage} from "./storage.js";
 document.addEventListener("load",updateCounter())
 const url = backupbackendurl;
 
-// FOnction pour cree notre div produit
+/**
+ * 
+ * @param {
+ * } obj 
+ * @returns dom element
+ */
 let createProductCard = function (obj) {
   const main = document.querySelector("body > main > div");
   const card =
