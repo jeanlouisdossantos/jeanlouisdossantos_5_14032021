@@ -1,14 +1,51 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- <title>Orinoco site de vente en ligne</title> -->
+
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <link rel="stylesheet" href="tailwind.css">
+    <script src="https://kit.fontawesome.com/3821baace1.js" crossorigin="anonymous"></script>
+
+
 </head>
+
 <body>
-    <nav>ma barre de nav ici</nav>
-    <main> mon app la</main>
-    <footer>mon footer ici</footer>
+    <nav class="flex justify-between text-6xl pt-8 py-8 bg-yellow-100">
+        <a href="./index.html"><div class="logo flex ml-8">
+            <div id="companylogo" class="cartlogo"><i class="fas fa-shopping-cart iconegradient"></i></div>
+            <div class="logoname font-extrabold ml-8"><span class="logofont">Orinoco</span></div>
+        </div>
+    </a>
+        <div class="cart_icon mr-8">
+            <a href="panier.html" target="_blank" rel="noopener noreferrer">
+                <div class="relative"><i class="fas fa-shopping-cart"></i><p class="w-10 h-10 absolute bottom-0 left-2/3 text-center text-2xl font-extrabold rounded-full">0</p></div>
+            </a>
+        </div>
+    </nav>
+    <h1 class="text-6xl text-center">Site de vente en ligne</h1>
+    <main class="">
+        <div class="product flex flex-wrap justify-between w-auto">
+            <!-- <div id="articlecard1" class="w-2/5 border-4 rounded-md border-black m-8 ">
+                <img src="../src/img/teddy_1.jpg" alt="">
+                <h2 class="text-center text-2xl">ours 1</h2>
+                <p class="text-center text-2xl mt-8 mb-2"> A partir de <span class="text-bold">99.99€</span></p>
+            </div>
+            <div id="articlecard1" class="w-2/5 border-4 rounded-md border-black m-8 ">
+                <img src="../src/img/teddy_1.jpg" alt="">
+                <h2 class="text-center text-2xl">ours 1</h2>
+                <p class="text-center text-2xl mt-8 mb-2"> A partir de <span class="text-bold">99.99€</span></p>
+            </div> -->
+        </div>
+
+    </main>
+
+
 </body>
+
 </html>
