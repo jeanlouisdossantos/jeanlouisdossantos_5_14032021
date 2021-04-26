@@ -1,3 +1,6 @@
 FRONT/node_modules/*
 FRONT/dist/*
 BACK/node_modules/*
+BACK/package-lock.json
+*.docx
+*.pdf
