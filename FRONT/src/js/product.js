@@ -19,12 +19,12 @@ const createDetailedProductCard = function (obj) {
             <p>${obj.description}</p>
             <p>${convertToCurrency(obj.price / 100)}</p>
             <div class="colorselector my-8">
-              <select name="color" id="color" class="">
-                <option value="">--- Merci de choisr la couleur ---</option>
+              <select name="color" id="colorselector" class="">
+                <option value="default">--- Merci de choisr la couleur ---</option>
                 ${obj.colors
                   .map(
                     (color) =>
-                      "<option value=" + color + ">" + color + "</option>"
+                    `<option value="${color}"> ${color}</option>`
                   )
                   .join("")}
   
@@ -40,26 +40,28 @@ const createDetailedProductCard = function (obj) {
 
   let addbutton = document.getElementById("addtocart")
   addbutton.addEventListener("click", () => {
-  storage.additem(obj)
+    if(document.getElementById("colorselector").value == "default"){
+      alert("merci de choisir une couleur")
+    }
+    else{
+      storage.additem(obj)
+    }
+  
   updateCounter()
   })
   
 }
 
 const errorMessage = function () {
-  let test = document.getElementById("detailsproduit");
+  const  detailsProduit = document.getElementById("detailsproduit");
   const card = `
       <div class="productcard">
       MESSAGE D'ERREUR reviens en arrier
-      
-
       </div>
-
-
 `;
 
-  test.innerHTML += card;
-  return test;
+  detailsProduit.innerHTML += card;
+  return detailsProduit;
 };
 /**
  * partie qui gere le dom de la page renvoi un message d'erreur sir les paramaetre ne sont pas bon, sinon affiche le produit
@@ -70,7 +72,7 @@ const endpoint = backupbackendurl + "/" + id;
 if (id == null) {
   errorMessage();
 } else {
-  const produitAAfficher = fetch(endpoint)
+  fetch(endpoint)
     .then((response) => {
       if (response.ok) {
         response.json().then((json) => createDetailedProductCard(json));

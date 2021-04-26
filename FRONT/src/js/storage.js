@@ -1,6 +1,8 @@
 // gestion du local storage
 //  @return(Array)
 
+import { updateCounter } from "./utils"
+// création de la classe storage qui gere les differente fonction du panier
 class Storage {
   
   constructor() {
@@ -46,19 +48,12 @@ additem (obj){
  * @param {Object} obj l'objet qui represente l'article a supprimer
 * @return Array 
 */
-removeItem (obj) {
-  let basket = 'orinocobasket'
-  let baskettoupdate = JSON.parse(localStorage.getItem(basket))
-
-  delete baskettoupdate.obj
-  localStorage.setItem(basket,baskettoupdate)
-}
-/**
- * 
- * @param {string}
- * */
-clgCart () {
-  console.log(localStorage.getItem(this.name))};
+removeItem (id) {
+  let basket = this.getallitems()
+  basket.splice(basket.findIndex(obj => obj._id === id),1)
+  localStorage.setItem(this.name, JSON.stringify(basket))
+  location.reload()
+} 
 /**
  * fonction qui renvoi le nombre d'article dans le panier
  */
@@ -67,6 +62,14 @@ let basket = this.getallitems()
 const valeurInitial = 0
 const total = basket.reduce((acc,curr)=>acc+curr.quantity,valeurInitial)
 return total
+}
+getbasketamount(){
+  let basket = this.getallitems()
+  return basket.reduce((acc,curr)=>acc+curr.price/100*curr.quantity,0)
+}
+clearbasket(){
+  localStorage.setItem(this.name,"[]")
+
 }
 }
 export let storage = new Storage();
