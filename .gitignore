@@ -4,3 +4,4 @@ BACK/node_modules/*
 *.pdf
 *.pdf
 *.docx
+BACK/package-lock.json
