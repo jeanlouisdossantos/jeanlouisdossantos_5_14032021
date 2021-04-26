@@ -15,4 +15,10 @@ export const convertToCurrency = (price) =>
   export const updateCounter = function () { 
  let counter = document.querySelector("body > nav > div > a > div > p")
  counter.innerHTML = storage.gettotalquantity()
+ if (storage.gettotalquantity() === 0){
+   counter.classList.add("bg-red-100")
+ }
+ else {
+   counter.classList.add("bg-green-100")
+ }
  }
