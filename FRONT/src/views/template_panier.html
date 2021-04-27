@@ -5,21 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orinoco site de vente en ligne</title>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
     <link rel="stylesheet" href="tailwind.css">
     <script src="https://kit.fontawesome.com/3821baace1.js" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="../../dist/tailwind.css">
-    <script src="../../dist/index.js"></script> -->
+
 
 
 </head>
 
 <body>
-    <nav class="flex justify-between text-6xl pt-8 py-8 bg-yellow-100">
+    <nav class="flex w-full justify-between text-6xl pt-8 py-8 bg-yellow-100">
         <a href="./index.html">
             <div class="logo flex ml-8">
                 <div id="companylogo" class="cartlogo"><i class="fas fa-shopping-cart iconegradient"></i></div>
-                <div class="logoname font-extrabold ml-8"><span class="logofont">Orinoco</span></div>
+                <div class="logoname font-extrabold ml-8 hidden md:inline-flex"><span class="logofont">Orinoco</span>
+                </div>
             </div>
         </a>
         <div class="cart_icon mr-8">
@@ -31,7 +33,7 @@
             </a>
         </div>
     </nav>
-    <h1 class="text-6xl text-center">Votre Panier :</h1>
+    <h1 class=" text-2xl md:text-6xl text-center">Votre Panier :</h1>
     <main class="">
         <div class="panier" id="panier"></div>
 
@@ -57,7 +59,7 @@
                 </div>
                 <div class="w-1/3 p-2 border-gray-200 border-2 rounded-md">
                     <label for="address">Adresse : </label>
-                    <input type="text" name="address" id="adress" class="w-5/6"/><br>
+                    <input type="text" name="address" id="adress" class="w-5/6" /><br>
                     <span class="hidden" id="addressspan">Saisie invalide</span>
                 </div>
                 <div class="w-1/3 p-2 border-gray-200 border-2 rounded-md">

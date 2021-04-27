@@ -8,13 +8,13 @@ document.addEventListener("load", updateCounter());
 /** fonction create row  */
 const createRow = function (obj) {
   let row = `
-            <tr>
+            <tr class="table-row">
                 <td class="p-4">${obj.name}</td>
-                <td class="p-4"><img src=${
+                <td class="p-4 hidden md:inline-flex"><img src=${
                   obj.imageUrl
                 } alt="" class="w-20 h-auto"></td>
-                <td class="p-4">${convertToCurrency(obj.price / 100)}</td>
-                <td class="p-4">${obj.quantity}</td>
+                <td class="p-4 hidden md:inline-flex">${convertToCurrency(obj.price / 100)}</td>
+                <td class="p-4 hidden md:inline-flex">${obj.quantity}</td>
                 <td class="p-4">${convertToCurrency(
                   (obj.price / 100) * obj.quantity
                 )}</td>
@@ -47,22 +47,22 @@ const createBasket = function (array) {
   } else {
     const card = `
     <table class="table-auto mx-auto mt-8">
-        <tr>
+        <tr >
             <th class="p-4">Nom</th>
-            <th class="p-4">Photo</th>
-            <th class="p-4">Prix Unitaire</th>
-            <th class="p-4">Quantité</th>
+            <th class="p-4 hidden md:inline-flex">Photo</th>
+            <th class="p-4 hidden md:inline-flex">Prix Unitaire</th>
+            <th class="p-4 hidden md:inline-flex">Quantité</th>
             <th class="p-4">Total</th>
             <th class="p-4">Enlever du panier?</th>
         </tr>
         
         ${basket.map((obj) => createRow(obj)).join("")}
-            <tr class="hidden" id="totalline">
+            <tr class="hidden table-row" id="totalline">
                 <td class="p-4"></td>
-                <td class="p-4"></td>
-                <td class="p-4"></td>
-                <td class="p-4"></td>
-                <td class="p-4">${convertToCurrency(
+                <td class="p-4 hidden md:inline-flex"></td>
+                <td class="p-4 hidden md:inline-flex"></td>
+                <td class="p-4 hidden md:inline-flex"></td>
+                <td class="p-4 ">${convertToCurrency(
                   storage.getbasketamount()
                 )}</td>
                 <td class="p-4"><Button
@@ -106,27 +106,58 @@ const createBasket = function (array) {
  */
 const isFormValid = function (formdata) {
   let res = [];
-  let regexdata = /[\w\séè]+/;
   let regexMail = /^[\w\-\_\.]+@{1}[\w\-\_]+\.[a-zA-Z]{2,10}$/;
+  let regexname = /^[a-z\séè]+$/i;
+  let regexadress = /[\w\séè]+/;
+
+
 
   for (let entry of formdata.entries()) {
-    if (entry[0] === "email") {
-      res.push(regexMail.test(entry[1]))
-      if(!regexMail.test(entry[1])){
-        document.getElementById(`${entry[0]}span`).classList.remove("hidden")
-        document.getElementById(`${entry[0]}span`).classList.add("text-red-900")
-      }
-        else {document.getElementById(`${entry[0]}span`).classList.add("hidden")}
-        
-      ;
-    } else {
-      res.push(regexdata.test(entry[1]))
-      if(!regexdata.test(entry[1])){
-        document.getElementById(`${entry[0]}span`).classList.remove("hidden")
-        document.getElementById(`${entry[0]}span`).classList.add("text-red-900")
-      }
-      else {document.getElementById(`${entry[0]}span`).classList.add("hidden")};
+    
+    switch(entry[0]){
+      case "firstName":
+        res.push(regexname.test(entry[1]))
+        if(!regexname.test(entry[1])){
+          document.getElementById(`${entry[0]}span`).classList.remove("hidden")
+          document.getElementById(`${entry[0]}span`).classList.add("text-red-900")
+        }
+          else {document.getElementById(`${entry[0]}span`).classList.add("hidden")}
+        break
+      case "lastName":
+        res.push(regexname.test(entry[1]))
+        if(!regexname.test(entry[1])){
+          document.getElementById(`${entry[0]}span`).classList.remove("hidden")
+          document.getElementById(`${entry[0]}span`).classList.add("text-red-900")
+        }
+          else {document.getElementById(`${entry[0]}span`).classList.add("hidden")}
+        break
+      case "email":
+        res.push(regexMail.test(entry[1]))
+        if(!regexMail.test(entry[1])){
+          document.getElementById(`${entry[0]}span`).classList.remove("hidden")
+          document.getElementById(`${entry[0]}span`).classList.add("text-red-900")
+        }
+          else {document.getElementById(`${entry[0]}span`).classList.add("hidden")}
+        break
+      case "address":
+        res.push(regexadress.test(entry[1]))
+        if(!regexadress.test(entry[1])){
+          document.getElementById(`${entry[0]}span`).classList.remove("hidden")
+          document.getElementById(`${entry[0]}span`).classList.add("text-red-900")
+        }
+          else {document.getElementById(`${entry[0]}span`).classList.add("hidden")}
+      break
+      case "city":
+        res.push(regexadress.test(entry[1]))
+        if(!regexadress.test(entry[1])){
+          document.getElementById(`${entry[0]}span`).classList.remove("hidden")
+          document.getElementById(`${entry[0]}span`).classList.add("text-red-900")
+        }
+          else {document.getElementById(`${entry[0]}span`).classList.add("hidden")}
+      break
+
     }
+    
   }
 
   return !res.includes(false)
