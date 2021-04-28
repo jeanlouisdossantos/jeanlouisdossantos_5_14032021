@@ -4,12 +4,13 @@
 
 - Cloner le repo en local
 - lancer la commande **NPM INSTALL** pour installer les dépendances
-- naviguer dans le dossier et lancer commande suivnte : 
-    - **NPM RUN WATCH** en mode devellopement
+- naviguer dans le dossier et lancer la commande suivante : 
+    - **NPM RUN WATCH** en mode développement
     - **NPM RUN BUILD** en mode production
 
-## Gastion du backend
--   Par defaut le site fonctionne avec un backend end en local. Il faut donc avoir cloner le repo https://github.com/OpenClassrooms-Student-Center/JWDP5.git
-- lancer la commande node server depuis le dossier ou vous avez installer le backend       
+- le site utilisable est généré dans un dossier dist
+
+## Gestion du backend
+-   Par defaut le site fonctionne avec un backend end en local. Il faut donc avoir cloner le repo https://github.com/OpenClassrooms-Student-Center/JWDP5.git puis lancer la commande node server depuis le dossier ou vous avez installé le backend
 
 
